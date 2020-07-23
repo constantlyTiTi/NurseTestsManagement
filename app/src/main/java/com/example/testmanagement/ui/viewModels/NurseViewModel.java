@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.testmanagement.NurseRepository;
+import com.example.testmanagement.data.NurseRepository;
 import com.example.testmanagement.service.models.Nurse;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class NurseViewModel extends AndroidViewModel {
     public LiveData<Optional<Nurse>> getLoginNurseInfor(int nurseId){
         return nurseRepository.getLoginNurseInfor(nurseId);
     }
-    public LiveData<Optional<List<Nurse>>>getAllNurse(){
+    public LiveData<List<Nurse>>getAllNurse(){
         return nurseRepository.getNurseList();
     }
 }

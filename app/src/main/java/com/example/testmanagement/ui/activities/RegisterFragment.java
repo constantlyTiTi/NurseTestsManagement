@@ -18,7 +18,14 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        register_bt=(Button)getView().findViewById(R.id.register_bt);
+
+
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
+        return view;
+    }
+
+    public void fragmentShow(){
+        register_bt=(Button)getView().findViewById(R.id.register_fragment_bt);
         register_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +33,6 @@ public class RegisterFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
 }

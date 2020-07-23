@@ -1,10 +1,9 @@
-package com.example.testmanagement;
+package com.example.testmanagement.data;
 
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.example.testmanagement.service.models.Patient;
 
 import java.util.List;

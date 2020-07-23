@@ -11,12 +11,13 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
+        android:id="@+id/register_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/register_bt"
+            android:id="@+id/register_fragment_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"

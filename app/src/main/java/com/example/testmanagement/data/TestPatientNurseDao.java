@@ -1,4 +1,4 @@
-package com.example.testmanagement;
+package com.example.testmanagement.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

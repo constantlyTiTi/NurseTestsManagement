@@ -9,26 +9,68 @@
 
 
     <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="622dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247">
+        tools:layout_editor_absoluteX="1dp">
 
-        <fragment
-            android:id="@+id/login_fragment"
-            android:name="com.example.testmanagement.ui.activities.LoginFragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="368dp" />
+            android:layout_height="93dp"
+            android:orientation="horizontal">
 
-        <fragment
-            android:id="@+id/register_fragment"
-            android:name="com.example.testmanagement.ui.activities.RegisterFragment"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingTop="30dp"
+                android:text="Nurse ID"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/nurseId_et"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="71dp" />
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:paddingTop="30dp"
+                android:text="Password"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="login"
+            android:textSize="24sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

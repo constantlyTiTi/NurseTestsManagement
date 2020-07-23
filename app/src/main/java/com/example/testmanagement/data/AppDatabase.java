@@ -1,4 +1,4 @@
-package com.example.testmanagement;
+package com.example.testmanagement.data;
 
 import android.content.Context;
 
@@ -16,7 +16,6 @@ abstract class AppDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "NursePatientTestDB";
     public abstract PatientDao patientDao();
     public abstract NurseDao nurseDao();
-    public abstract NurseLoginDao nurseLoginDao();
     public abstract TestPatientNurseDao testPatientNurseDao();
 
     public static synchronized AppDatabase getInstance(Context context){
