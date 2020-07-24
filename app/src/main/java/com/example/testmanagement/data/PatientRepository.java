@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.example.testmanagement.service.models.Patient;
 
-import java.util.List;
+import java.util.stream.Stream;
 
 public class PatientRepository {
 
-    private LiveData<List<Patient>> _patientList;
+    private LiveData<Stream<Patient>> _patientList;
     private MutableLiveData<Integer> _insertResult=new MutableLiveData<>();
     private final PatientDao patientDao;
 
@@ -20,7 +20,7 @@ public class PatientRepository {
        this._patientList=patientDao.getAllPatients(nurseId);
     }
 
-    public LiveData<List<Patient>> getPatientList(){return this._patientList;}
+    public LiveData<Stream<Patient>> getPatientList(){return this._patientList;}
     public void insert(Patient patient){asyncInsert(patient);}
     private void asyncInsert(final Patient patient){
         new Thread(new Runnable() {

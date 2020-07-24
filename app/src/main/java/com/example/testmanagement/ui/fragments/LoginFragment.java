@@ -1,4 +1,4 @@
-package com.example.testmanagement.ui.activities;
+package com.example.testmanagement.ui.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.testmanagement.service.models.Nurse;
+import com.example.testmanagement.ui.activities.LoginActivity;
 import com.example.testmanagement.ui.viewModels.NurseViewModel;
 import com.example.testmanagement.R;
 
@@ -39,7 +40,7 @@ public class LoginFragment extends Fragment {
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent=new Intent(getActivity(),LoginActivity.class);
+                intent=new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
         });

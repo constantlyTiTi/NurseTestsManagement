@@ -28,12 +28,12 @@
 
         <fragment
             android:id="@+id/login_fragment"
-            android:name="com.example.testmanagement.ui.activities.LoginFragment"
+            android:name="com.example.testmanagement.ui.fragments.LoginFragment"
             android:layout_width="match_parent"
             android:layout_height="92dp" />
         <fragment
             android:id="@+id/register_fragment"
-            android:name="com.example.testmanagement.ui.activities.RegisterFragment"
+            android:name="com.example.testmanagement.ui.fragments.RegisterFragment"
             android:layout_width="match_parent"
             android:layout_height="92dp" />
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.testmanagement.R;
+import com.example.testmanagement.ui.fragments.LoginFragment;
+import com.example.testmanagement.ui.fragments.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 private LoginFragment loginFragment;

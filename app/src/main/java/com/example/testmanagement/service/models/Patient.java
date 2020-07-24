@@ -13,15 +13,32 @@ public class Patient {
     private int _nurseId;
     private String _room;
 
-    public Patient(int patientId, String firstName, String lastName,String department,int nurseId,String room){
-        this._patientId=patientId;
-        this._firstName=firstName;
-        this._lastName=lastName;
-        this._department=department;
-        this._nurseId=nurseId;
-        this._room=room;
+    public Patient() {
     }
 
+    public void set_patientId(int _patientId) {
+        this._patientId = _patientId;
+    }
+
+    public void set_department(String _department) {
+        this._department = _department;
+    }
+
+    public void set_firstName(String _firstName) {
+        this._firstName = _firstName;
+    }
+
+    public void set_lastName(String _lastName) {
+        this._lastName = _lastName;
+    }
+
+    public void set_nurseId(int _nurseId) {
+        this._nurseId = _nurseId;
+    }
+
+    public void set_room(String _room) {
+        this._room = _room;
+    }
     public int get_patientId(){
         return this._patientId;
     }

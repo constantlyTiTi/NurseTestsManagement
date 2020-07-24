@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 enteredPassword=password_et.getText().toString();
                 if (isUserExist(nurseId)) {
                     if (isPasswordCorrect(enteredPassword)) {
-                        nurseIdSharedPreference = getSharedPreferences("NurseId", MODE_PRIVATE);
+                        nurseIdSharedPreference = getSharedPreferences("Nurse", MODE_PRIVATE);
                         nurseIdSharedPreferenceEditor = nurseIdSharedPreference.edit();
                         nurseIdSharedPreferenceEditor.putString("LoginNurseId", nurseId_et.toString());
                         nurseIdSharedPreferenceEditor.commit();

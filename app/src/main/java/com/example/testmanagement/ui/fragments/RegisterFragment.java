@@ -1,4 +1,4 @@
-package com.example.testmanagement.ui.activities;
+package com.example.testmanagement.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.testmanagement.R;
+import com.example.testmanagement.ui.activities.RegisterActivity;
 
 public class RegisterFragment extends Fragment {
     private Button register_bt;
@@ -29,7 +30,7 @@ public class RegisterFragment extends Fragment {
         register_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),RegisterActivity.class);
+                Intent intent=new Intent(getActivity(), RegisterActivity.class);
                 startActivity(intent);
             }
         });
