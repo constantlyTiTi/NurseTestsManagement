@@ -15,7 +15,7 @@ public class Test {
 
     public Test() {
     }
-
+/*
     public Test(int testId, int patientId, int nurseId, String bpl, String bph, double temp){
         this._testId=testId;
         this._patientId=patientId;
@@ -23,7 +23,7 @@ public class Test {
         this._BPL=bpl;
         this._BPH=bph;
         this._temperature=temp;
-    }
+    }*/
 
     public void set_testId(int _testId) {
         this._testId = _testId;
