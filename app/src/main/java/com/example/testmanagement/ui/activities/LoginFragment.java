@@ -24,8 +24,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class LoginFragment extends Fragment {
 
-Button login_bt;
-
+    private Button login_bt;
+    private Intent intent;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ Button login_bt;
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),LoginActivity.class);
+                intent=new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -36,9 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        int nurseId;
-        String enteredPassword;
-
         //link viewModel
         nurseViewModel= ViewModelProviders.of(this).get(NurseViewModel.class);
 
@@ -46,13 +43,15 @@ public class LoginActivity extends AppCompatActivity {
         nurseId_et=(EditText)findViewById(R.id.nurseId_et);
         password_et=(EditText)findViewById(R.id.password_et);
         login_bt=(Button)findViewById(R.id.login_bt);
-        nurseId=Integer.parseInt(nurseId_et.getText().toString());
-        enteredPassword=password_et.getText().toString();
 
         //Add onClick event to Login button and register button
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int nurseId;
+                String enteredPassword;
+                nurseId=Integer.parseInt(nurseId_et.getText().toString());
+                enteredPassword=password_et.getText().toString();
                 if (isUserExist(nurseId)) {
                     if (isPasswordCorrect(enteredPassword)) {
                         nurseIdSharedPreference = getSharedPreferences("NurseId", MODE_PRIVATE);

@@ -29,7 +29,7 @@ public class RegisterFragment extends Fragment {
         register_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),RegisterActivity.class);
+                Intent intent=new Intent(getActivity(),RegisterActivity.class);
                 startActivity(intent);
             }
         });
