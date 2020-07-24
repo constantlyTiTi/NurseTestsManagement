@@ -35,7 +35,7 @@ public class PatientListOfNurseFragment extends ListFragment {
 
         PatientListViewAdapter patientListViewAdapter=
                 new PatientListViewAdapter(getActivity(),patientViewModel.getAllPatientsByNurse()
-                        .getValue().collect(Collectors.toList()));
+                        .getValue());
         patientListView.setAdapter(patientListViewAdapter);
     }
 }

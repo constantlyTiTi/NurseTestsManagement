@@ -18,7 +18,6 @@ public class NurseRepository {
     public NurseRepository(Context context) {
         AppDatabase db=AppDatabase.getInstance(context);
         nurseDao=db.nurseDao();
-        nurseDao=db.nurseDao();
         this._nurseList=nurseDao.getAllNurse();
     }
 

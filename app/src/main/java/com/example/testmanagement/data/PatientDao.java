@@ -7,12 +7,12 @@ import androidx.room.Query;
 
 import com.example.testmanagement.service.models.Patient;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 @Dao
 public interface PatientDao {
     @Insert
      void insert(Patient patient);
     @Query("select * from Patient where _nurseId= :nurseId")
-    LiveData<Stream<Patient>> getAllPatients(int nurseId);
+    LiveData<List<Patient>> getAllPatients(int nurseId);
 }

@@ -11,7 +11,7 @@ import androidx.lifecycle.LiveData;
 import com.example.testmanagement.data.PatientRepository;
 import com.example.testmanagement.service.models.Patient;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class PatientViewModel extends AndroidViewModel {
     private PatientRepository patientRepository;
@@ -24,7 +24,7 @@ public class PatientViewModel extends AndroidViewModel {
         patientRepository=new PatientRepository(application,Integer.parseInt(nurseId));
     }
 
-    public LiveData<Stream<Patient>> getAllPatientsByNurse(){
+    public LiveData<List<Patient>> getAllPatientsByNurse(){
         return patientRepository.getPatientList();
     }
 }
