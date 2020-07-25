@@ -16,10 +16,10 @@ import java.util.Optional;
 public interface NurseDao {
     @Insert
     void insert(Nurse nurse);
-    @Query("select * from Nurse order by _nurseId")
+    @Query("select * from Nurse order by nurseId")
     LiveData<List<Nurse>> getAllNurse();
     @Update
     void update(Nurse nurse);
-    @Query("select*from Nurse where _nurseId=:nurseId")
+    @Query("select*from Nurse where nurseId=:nurseId")
     LiveData<Optional<Nurse>> getLoginNurseInfor(int nurseId);
 }
