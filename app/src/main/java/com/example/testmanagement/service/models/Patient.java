@@ -1,60 +1,66 @@
 package com.example.testmanagement.service.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity (tableName = "patient")
 public class Patient {
-@PrimaryKey(autoGenerate = true)
-    private int _patientId;
-    private String _firstName;
-    private String _lastName;
-    private String _department;
-    private int _nurseId;
-    private String _room;
+    @PrimaryKey(autoGenerate = true)
+     private int patientId;
+    @ColumnInfo(name="firstname")
+    private String firstName;
+    @ColumnInfo(name="lastName")
+    private String lastName;
+    @ColumnInfo(name="department")
+    private String department;
+    @ColumnInfo(name="nurseId")
+    private int nurseId;
+    @ColumnInfo(name="room")
+    private String room;
 
     public Patient() {
     }
 
-    public void set_patientId(int _patientId) {
-        this._patientId = _patientId;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
-    public void set_department(String _department) {
-        this._department = _department;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public void set_firstName(String _firstName) {
-        this._firstName = _firstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void set_lastName(String _lastName) {
-        this._lastName = _lastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void set_nurseId(int _nurseId) {
-        this._nurseId = _nurseId;
+    public void setNurseId(int nurseId) {
+        this.nurseId = nurseId;
     }
 
-    public void set_room(String _room) {
-        this._room = _room;
+    public void setRoom(String room) {
+        this.room = room;
     }
-    public int get_patientId(){
-        return this._patientId;
+    public int getPatientId(){
+        return this.patientId;
     }
-    public String get_firstName(){
-        return this._firstName;
+    public String getFirstName(){
+        return this.firstName;
     }
-    public String get_lastName(){
-        return this._lastName;
+    public String getLastName(){
+        return this.lastName;
     }
-    public String get_department(){
-        return this._department;
+    public String getDepartment(){
+        return this.department;
     }
-    public int get_nurseId(){
-        return this._nurseId;
+    public int getNurseId(){
+        return this.nurseId;
     }
-    public String get_room(){
-        return this._room;
+    public String getRoom(){
+        return this.room;
     }
 }

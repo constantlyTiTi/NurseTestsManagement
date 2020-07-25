@@ -1,16 +1,23 @@
 package com.example.testmanagement.service.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "Test")
 public class Test {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name="testId")
     private int _testId;
+    @ColumnInfo(name="patientId")
     private int _patientId;
+    @ColumnInfo(name="nurseId")
     private int _nurseId;
+    @ColumnInfo(name="BPL")
     private String _BPL;
+    @ColumnInfo(name="BPH")
     private String _BPH;
+    @ColumnInfo(name="temperature")
     private double _temperature;
 
     public Test() {

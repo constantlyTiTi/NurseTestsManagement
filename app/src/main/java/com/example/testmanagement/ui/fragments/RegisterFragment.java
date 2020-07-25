@@ -27,12 +27,9 @@ public class RegisterFragment extends Fragment {
 
     public void fragmentShow(){
         register_bt=(Button)getView().findViewById(R.id.register_fragment_bt);
-        register_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), RegisterActivity.class);
-                startActivity(intent);
-            }
+        register_bt.setOnClickListener(v -> {
+            Intent intent=new Intent(getActivity(), RegisterActivity.class);
+            startActivity(intent);
         });
     }
 

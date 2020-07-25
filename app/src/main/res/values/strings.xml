@@ -11,6 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="user_not_exist">User not exist</string>
     <string name="wrong_password">You entered the wrong password</string>
+    <string name="user_already_exist">user already exist</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

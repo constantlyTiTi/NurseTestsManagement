@@ -54,9 +54,9 @@ public class LoginActivity extends AppCompatActivity {
                 enteredPassword=password_et.getText().toString();
                 if (isUserExist(nurseId)) {
                     if (isPasswordCorrect(enteredPassword)) {
-                        nurseIdSharedPreference = getSharedPreferences("Nurse", MODE_PRIVATE);
+                        nurseIdSharedPreference = getSharedPreferences("nurse", MODE_PRIVATE);
                         nurseIdSharedPreferenceEditor = nurseIdSharedPreference.edit();
-                        nurseIdSharedPreferenceEditor.putString("LoginNurseId", nurseId_et.toString());
+                        nurseIdSharedPreferenceEditor.putString("loginNurseId", nurseId_et.toString());
                         nurseIdSharedPreferenceEditor.commit();
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), R.string.wrong_password, Toast.LENGTH_LONG);
