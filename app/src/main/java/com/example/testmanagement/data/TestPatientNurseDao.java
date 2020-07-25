@@ -13,6 +13,6 @@ import java.util.List;
 public interface TestPatientNurseDao {
     @Insert
     void insert(Test test);
-    @Query("select * from Test where _nurseId=:nurseId and _patientId=:patientId")
+    @Query("select * from Test where nurseId=:nurseId and patientId=:patientId")
     LiveData<List<Test>> getAllTestsByNursePatient(int nurseId,int patientId);
 }
