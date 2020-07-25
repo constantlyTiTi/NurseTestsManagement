@@ -61,10 +61,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nurse=new Nurse();
-                nurse.set_firstName(firstNameRegister_et.toString());
-                nurse.set_lastName(lastNameRegister_et.toString());
-                nurse.set_department(departmentRegister_et.toString());
-                nurse.set_password(passwordRegister_et.toString());
+                nurse.set_firstName(firstNameRegister_et.getText().toString());
+                nurse.set_lastName(lastNameRegister_et.getText().toString());
+                nurse.set_department(departmentRegister_et.getText().toString());
+                nurse.set_password(passwordRegister_et.getText().toString());
 //                nurse.set_nurseId(nurseViewModel.insertNurseAndReturnNurseId(nurse));
                 nurseViewModel.insertNurse(nurse);
 //                nurseViewModel.insertNurseAndReturnNurseId(nurse);

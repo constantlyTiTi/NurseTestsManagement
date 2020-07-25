@@ -48,19 +48,25 @@ public class NurseProfileActivity extends AppCompatActivity {
         getNurseId=getSharedPreferences("nurse",MODE_PRIVATE);
         nurseId_String=getNurseId.getString("nurseRegisterId",nurseId_String);
         nurseId=Long.parseLong(nurseId_String);
-        display(nurseId);
+
+        nurseViewModel.getLoginNurseInfor(nurseId).observe(this,nurseGet->{
+                    nurseGet
+                            .map(n->{
+                                display(n);
+                                return n;
+                            });
+//            nurse=nurseGet.get();
+
+                }
+        );
+
         goToPatient_bt.setOnClickListener(v -> buttonOnClick());
 
     }
 
-    private void display(Long nurseId){
-        nurseViewModel.getLoginNurseInfor(nurseId).observe(this,nurseGet->{
-            nurseGet
-                    .map(n->Log.d("a", "n.id is "+ n.get_nurseId()));
-//            nurse=nurseGet.get();
-                }
-        );
-        nurseId_tv.setText(String.valueOf(nurseId));
+    private void display(Nurse nurse){
+
+        nurseId_tv.setText(String.valueOf(nurse.get_nurseId()));
         firstNameRegister_et.setText(nurse.get_firstName());
         lastNameRegister_et.setText(nurse.get_lastName());
         departmentRegister_et.setText(nurse.get_department());
