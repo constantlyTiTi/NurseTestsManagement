@@ -46,7 +46,7 @@ public class NurseProfileActivity extends AppCompatActivity {
         passwordRegister_et=(EditText)findViewById(R.id.passwordRegister_et_profile);
         nurseViewModel=ViewModelProviders.of(this).get(NurseViewModel.class);
         getNurseId=getSharedPreferences("nurse",MODE_PRIVATE);
-        nurseId_String=getNurseId.getString("nurseRegisterId",nurseId_String);
+        nurseId_String=getNurseId.getString("authorizedNurseId",nurseId_String);
         nurseId=Long.parseLong(nurseId_String);
 
         nurseViewModel.getLoginNurseInfor(nurseId).observe(this,nurseGet->{

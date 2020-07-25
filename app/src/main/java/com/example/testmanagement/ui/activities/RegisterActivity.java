@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         intent=new Intent(RegisterActivity.this,NurseProfileActivity.class);
         nurseViewModel.get_insertNurseIdResult().observe(this, result -> {
             if(result>-1) {
-                registerNurseIdPreEditor.putString("nurseRegisterId",String.valueOf(result));
+                registerNurseIdPreEditor.putString("authorizedNurseId",String.valueOf(result));
                 registerNurseIdPreEditor.commit();
                 startActivity(intent);
             }
