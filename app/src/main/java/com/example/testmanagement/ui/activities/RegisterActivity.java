@@ -1,20 +1,26 @@
 package com.example.testmanagement.ui.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Nurse;
 import com.example.testmanagement.ui.viewModels.NurseViewModel;
+
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button register_submit_bt;
@@ -26,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     SharedPreferences registerNurseIdPreference;
     SharedPreferences.Editor registerNurseIdPreEditor;
     Intent intent;
+    Nurse nurse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +48,33 @@ public class RegisterActivity extends AppCompatActivity {
         registerNurseIdPreference=getSharedPreferences("nurse",MODE_PRIVATE);
         registerNurseIdPreEditor=registerNurseIdPreference.edit();
         intent=new Intent(RegisterActivity.this,NurseProfileActivity.class);
-
-        register_submit_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Nurse nurse=new Nurse();
-                nurse.set_firstName(firstNameRegister_et.toString());
-                nurse.set_lastName(lastNameRegister_et.toString());
-                nurse.set_department(departmentRegister_et.toString());
-                nurse.set_password(passwordRegister_et.toString());
-                nurseViewModel.insertNurse(nurse);
-                registerNurseIdPreEditor.putString("nurseRegisterId",String.valueOf(nurse.get_nurseId()));
+        nurseViewModel.get_insertNurseIdResult().observe(this, result -> {
+            if(result>-1) {
+                registerNurseIdPreEditor.putString("nurseRegisterId",String.valueOf(result));
                 registerNurseIdPreEditor.commit();
                 startActivity(intent);
             }
         });
 
+
+        register_submit_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nurse=new Nurse();
+                nurse.set_firstName(firstNameRegister_et.toString());
+                nurse.set_lastName(lastNameRegister_et.toString());
+                nurse.set_department(departmentRegister_et.toString());
+                nurse.set_password(passwordRegister_et.toString());
+//                nurse.set_nurseId(nurseViewModel.insertNurseAndReturnNurseId(nurse));
+                nurseViewModel.insertNurse(nurse);
+//                nurseViewModel.insertNurseAndReturnNurseId(nurse);
+//                nurseViewModel.processInsert();
+
+
+            }
+        });
+
     }
+
+
 }

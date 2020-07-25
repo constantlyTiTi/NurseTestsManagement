@@ -15,11 +15,11 @@ import java.util.Optional;
 @Dao
 public interface NurseDao {
     @Insert
-    void insert(Nurse nurse);
-    @Query("select * from Nurse order by nurseId")
+    Long insert(Nurse nurse);
+    @Query("select * from nurse order by nurseId")
     LiveData<List<Nurse>> getAllNurse();
     @Update
     void update(Nurse nurse);
-    @Query("select*from Nurse where nurseId=:nurseId")
-    LiveData<Optional<Nurse>> getLoginNurseInfor(int nurseId);
+    @Query("select*from nurse where nurseId=:nurseId")
+    LiveData<Optional<Nurse>> getLoginNurseInfor(Long nurseId);
 }

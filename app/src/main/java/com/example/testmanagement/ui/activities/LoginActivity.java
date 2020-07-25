@@ -48,9 +48,9 @@ public class LoginActivity extends AppCompatActivity {
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int nurseId;
+                Long nurseId;
                 String enteredPassword;
-                nurseId=Integer.parseInt(nurseId_et.getText().toString());
+                nurseId=Long.parseLong(nurseId_et.getText().toString());
                 enteredPassword=password_et.getText().toString();
                 if (isUserExist(nurseId)) {
                     if (isPasswordCorrect(enteredPassword)) {
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         return enteredPassword.compareTo(passwordInDatabase)==0? true:false;
     }
 
-    private boolean isUserExist(int nurseId){
+    private boolean isUserExist(Long nurseId){
         AtomicBoolean loginValidation= new AtomicBoolean(false);
 //        nurse = nurseViewModel.getLoginNurseInfor(nurseId).getValue().
         nurseViewModel.getLoginNurseInfor(nurseId).getValue()

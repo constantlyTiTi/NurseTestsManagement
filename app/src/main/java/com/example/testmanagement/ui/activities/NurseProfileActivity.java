@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Nurse;
 import com.example.testmanagement.ui.viewModels.NurseViewModel;
+
+import java.util.Optional;
 
 public class NurseProfileActivity extends AppCompatActivity {
 
@@ -26,14 +29,14 @@ public class NurseProfileActivity extends AppCompatActivity {
     private EditText passwordRegister_et;
     private NurseViewModel nurseViewModel;
     private Nurse nurse;
-    private SharedPreferences getNurseId;
+    SharedPreferences getNurseId;
     String nurseId_String;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_profile);
-        int nurseId;
+        long nurseId;
 
         nurseId_tv=(TextView)findViewById(R.id.nurseId_tv_profile);
         goToPatient_bt=(Button)findViewById(R.id.goToPatient_bt_profile);
@@ -44,16 +47,20 @@ public class NurseProfileActivity extends AppCompatActivity {
         nurseViewModel=ViewModelProviders.of(this).get(NurseViewModel.class);
         getNurseId=getSharedPreferences("nurse",MODE_PRIVATE);
         nurseId_String=getNurseId.getString("nurseRegisterId",nurseId_String);
-        nurseId=Integer.parseInt(nurseId_String);
-
+        nurseId=Long.parseLong(nurseId_String);
         display(nurseId);
         goToPatient_bt.setOnClickListener(v -> buttonOnClick());
 
     }
 
-    private void display(int nurseId){
-        nurse=nurseViewModel.getLoginNurseInfor(nurseId).getValue().get();
-        nurseId_tv.setText(nurseId);
+    private void display(Long nurseId){
+        nurseViewModel.getLoginNurseInfor(nurseId).observe(this,nurseGet->{
+            nurseGet
+                    .map(n->Log.d("a", "n.id is "+ n.get_nurseId()));
+//            nurse=nurseGet.get();
+                }
+        );
+        nurseId_tv.setText(String.valueOf(nurseId));
         firstNameRegister_et.setText(nurse.get_firstName());
         lastNameRegister_et.setText(nurse.get_lastName());
         departmentRegister_et.setText(nurse.get_department());

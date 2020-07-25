@@ -8,12 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.testmanagement.data.AsyncInsertResponse;
 import com.example.testmanagement.data.PatientRepository;
 import com.example.testmanagement.service.models.Patient;
 
 import java.util.List;
 
-public class PatientViewModel extends AndroidViewModel {
+public class PatientViewModel extends AndroidViewModel implements AsyncInsertResponse {
     private PatientRepository patientRepository;
     private String nurseId;
     private SharedPreferences getNurseIdSharedPreference;
@@ -26,5 +27,10 @@ public class PatientViewModel extends AndroidViewModel {
 
     public LiveData<List<Patient>> getAllPatientsByNurse(){
         return patientRepository.getPatientList();
+    }
+
+    @Override
+    public void processInsert(Long id) {
+
     }
 }

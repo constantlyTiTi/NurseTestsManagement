@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Nurse {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="nurseId")
-    private int _nurseId;
+    private long _nurseId;
     @ColumnInfo(name="firstName")
     private String _firstName;
     @ColumnInfo(name="lastName")
@@ -29,7 +29,7 @@ public class Nurse {
         this._password=password;
     }*/
 
-    public void set_nurseId(int _nurseId) {
+    public void set_nurseId(long _nurseId) {
         this._nurseId = _nurseId;
     }
 
@@ -49,7 +49,7 @@ public class Nurse {
         this._password = _password;
     }
 
-    public int get_nurseId() {
+    public long get_nurseId() {
         return _nurseId;
     }
 
