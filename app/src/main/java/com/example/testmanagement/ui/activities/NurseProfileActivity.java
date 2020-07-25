@@ -74,7 +74,7 @@ public class NurseProfileActivity extends AppCompatActivity {
     }
 
     private void buttonOnClick(){
-        Intent intent=new Intent(this,PatientActivity.class);
+        Intent intent=new Intent(NurseProfileActivity.this,PatientActivity.class);
         startActivity(intent);
     }
 }
