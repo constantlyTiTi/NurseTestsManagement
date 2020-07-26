@@ -13,19 +13,28 @@
             android:id="@+id/patientId_listView_tv"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/patientFirstName_listView_tv"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/patientLastName_listView_tv"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="69dp"
@@ -34,16 +43,12 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/updatebtLayout_listView"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:orientation="vertical"></LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/deletebtLayout_listView"
+                android:id="@+id/editViewbtLayout_listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"
+                android:paddingTop="10dp"></LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
