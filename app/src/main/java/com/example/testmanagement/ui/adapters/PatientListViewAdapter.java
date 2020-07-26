@@ -1,6 +1,8 @@
 package com.example.testmanagement.ui.adapters;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.annotation.NonNull;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Patient;
+import com.example.testmanagement.ui.activities.UpdateInforActivity;
 
 import java.util.List;
 
@@ -24,14 +27,22 @@ public class PatientListViewAdapter extends ArrayAdapter<Patient> {
     private LinearLayout editViewButtonLayout;
 
     private Activity context;
-
+    private Intent intent;
     private List<Patient> patients;
+    SharedPreferences patientSharedPreference;
+    SharedPreferences.Editor patientSharedPreferenceEditor;
 
     public PatientListViewAdapter(@NonNull Activity context, @NonNull List<Patient> objects) {
         super(context, R.layout.paitent_listview, objects);
         objects.add(0,null);
         this.patients=objects;
         this.context=context;
+        intent=new Intent(this.context, UpdateInforActivity.class);
+        patientSharedPreference=context
+                .getSharedPreferences(
+                        String.valueOf(R.string.patientSharedPreference),context.MODE_PRIVATE);
+
+        patientSharedPreferenceEditor=patientSharedPreference.edit();
     }
 
     public View getView(int position, View view, ViewGroup parent){
@@ -46,10 +57,17 @@ public class PatientListViewAdapter extends ArrayAdapter<Patient> {
                 Button editViewButton=new Button(this.context);
                 editViewButton.setText(R.string.patientListViewEditView);
                 editViewButtonLayout.addView(editViewButton);
+                editViewButton.setOnClickListener(v->context.startActivity(intent));
             }
             paitentId_tv.setText(patients.get(position).getPatientId().toString());
             patientFirstName_tv.setText(patients.get(position).getFirstName());
-            patientLastName_tv.setText(patients.get(position).getLastName());}
+            patientLastName_tv.setText(patients.get(position).getLastName());
+            patientSharedPreferenceEditor
+                    .putString(
+                            String.valueOf(R.string.selectedPatientId),
+                            String.valueOf(patients.get(position).getPatientId()));
+            patientSharedPreferenceEditor.commit();
+        }
         else {
 /*            TextView editViewTextView=new TextView(this.context);
             editViewButtonLayout.addView(editViewTextView);

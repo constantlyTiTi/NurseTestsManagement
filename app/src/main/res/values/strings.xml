@@ -20,4 +20,6 @@
     <string name="patientListViewPatientId">Patient Id</string>
     <string name="patientListViewPatientFN">First Name</string>
     <string name="patientListViewPatientLN">Last Name</string>
+    <string name="selectedPatientId">selectedPatientId</string>
+    <string name="patientSharedPreference">patientSharedPreference</string>
 </resources>
