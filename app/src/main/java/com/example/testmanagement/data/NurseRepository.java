@@ -47,32 +47,6 @@ public class NurseRepository {
     public LiveData<Long> getNurseInsertNurseIdResult(){return insertNurseIdResult;}
     public LiveData<Integer> getNurseUpdateResult(){return updateResult;}
 
-/*    public void insertNurseAndReturnID(Nurse nurse, AsyncInsertResponse resp){
-        new InsertNurseAndReturnID(nurseDao, resp).execute(nurse);
-    }*/
-
- /*   private static class InsertNurseAndReturnID extends AsyncTask<Nurse,Void,Long>
-
-    {
-        private NurseDao nurseDao;
-        private AsyncInsertResponse mAsyncInsertResponse;
-
-        InsertNurseAndReturnID(NurseDao dao) {
-            nurseDao = dao;
-            *//*mAsyncInsertResponse = asyncInsertResponse;*//*
-        }
-        @Override
-        protected Long doInBackground(Nurse... nurses) {
-            return nurseDao.insert(nurses[0]);
-        }
-
-*//*        @Override
-        protected void onPostExecute(Long aLong) {
-            super.onPostExecute(aLong);
-*//**//*            mAsyncInsertResponse.processInsert(aLong);*//**//*
-        }*//*
-    }*/
-
     private void asyncInsertNurse(final Nurse nurse){
         new Thread(() -> {
             try{

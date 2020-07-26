@@ -21,7 +21,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/patientId_update_tv"
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -31,7 +30,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/patient_Id_update_et"
+                android:id="@+id/patient_Id_update_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -117,7 +116,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/patientNurseId_update_tv"
+                android:id="@+id/NurseId_update_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -160,10 +159,17 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/addPatient_update_bt"
+            android:id="@+id/editSubmit_update_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="submit"
+            android:text="update patient information"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/updateToTestPage_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to patient tests"
             android:textSize="24sp" />
     </LinearLayout>
 

@@ -57,16 +57,18 @@ public class PatientListViewAdapter extends ArrayAdapter<Patient> {
                 Button editViewButton=new Button(this.context);
                 editViewButton.setText(R.string.patientListViewEditView);
                 editViewButtonLayout.addView(editViewButton);
-                editViewButton.setOnClickListener(v->context.startActivity(intent));
+                editViewButton.setOnClickListener(v->{
+                    context.startActivity(intent);
+                    patientSharedPreferenceEditor
+                            .putString(
+                                    String.valueOf(R.string.selectedPatientId),
+                                    String.valueOf(patients.get(position).getPatientId()));
+                    patientSharedPreferenceEditor.commit();
+                });
             }
             paitentId_tv.setText(patients.get(position).getPatientId().toString());
             patientFirstName_tv.setText(patients.get(position).getFirstName());
             patientLastName_tv.setText(patients.get(position).getLastName());
-            patientSharedPreferenceEditor
-                    .putString(
-                            String.valueOf(R.string.selectedPatientId),
-                            String.valueOf(patients.get(position).getPatientId()));
-            patientSharedPreferenceEditor.commit();
         }
         else {
 /*            TextView editViewTextView=new TextView(this.context);

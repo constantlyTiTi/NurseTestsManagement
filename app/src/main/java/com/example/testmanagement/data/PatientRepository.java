@@ -12,10 +12,9 @@ import java.util.List;
 
 public class PatientRepository {
 
-    private FragmentTransaction mFragmentTransaction;
-    private FragmentManager mFragmentManager;
     private LiveData<List<Patient>> _patientList;
     private MutableLiveData<Long> insertPatientId=new MutableLiveData<>();
+    private MutableLiveData<Integer> updateResult=new MutableLiveData<>();
     private final PatientDao patientDao;
 
     public PatientRepository(Context context) {
@@ -27,9 +26,11 @@ public class PatientRepository {
         this._patientList=patientDao.getAllPatients(nurseId);
         return this._patientList;}
     public void insert(Patient patient){asyncInsert(patient);}
+    public void update(Patient patient){asyncUpdate(patient);}
     public LiveData<Long> getInsertPatientId(){
         return insertPatientId;
     }
+    public LiveData<Integer> getUpdateResult(){return  updateResult;}
     public LiveData<Patient> getPatientInfor(Long patientId){return patientDao.getPatientInfor(patientId);}
     private void asyncInsert(final Patient patient){
         new Thread(new Runnable() {
@@ -40,6 +41,21 @@ public class PatientRepository {
                 }
                 catch (Exception e){
                     insertPatientId.postValue(-1l);
+                }
+            }
+        }).start();
+    }
+
+    private void asyncUpdate(final Patient patient){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    patientDao.update(patient);
+                    updateResult.postValue(1);
+                }
+                catch (Exception e){
+                    updateResult.postValue(0);
                 }
             }
         }).start();

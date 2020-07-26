@@ -22,4 +22,6 @@
     <string name="patientListViewPatientLN">Last Name</string>
     <string name="selectedPatientId">selectedPatientId</string>
     <string name="patientSharedPreference">patientSharedPreference</string>
+    <string name="patientUpdateSuccess">Patient Update Success</string>
+    <string name="patientUpdateFailed">Failed to Update the Patient</string>
 </resources>

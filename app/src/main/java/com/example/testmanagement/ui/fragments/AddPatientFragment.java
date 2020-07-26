@@ -35,7 +35,6 @@ public class AddPatientFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_add_patient, container, false);
         addPatientSubmit_bt=(Button)view.findViewById(R.id.addPatient_bt);
-        patientId_et=(EditText)view.findViewById(R.id.patient_Id_addPatient_et);
         patientFirstName_et=(EditText)view.findViewById(R.id.patientFirstName_addPatient_et);
         patientLastName_et=(EditText)view.findViewById(R.id.patientLastName_addPatient_et);
         patientNurseId_et=(EditText)view.findViewById(R.id.patientNurseId_addPatient_et);

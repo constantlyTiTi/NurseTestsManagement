@@ -32,7 +32,14 @@ public class PatientViewModel extends AndroidViewModel {
     public void insertPatient(Patient patient){
         patientRepository.insert(patient);
     }
+    public void updatePatient(Patient patient){
+        patientRepository.update(patient);
+    }
     public LiveData<Patient> getPatientInfor(Long patientId){
         return patientRepository.getPatientInfor(patientId);
+    }
+
+    public LiveData<Integer> getUpdateResult(){
+        return patientRepository.getUpdateResult();
     }
 }
