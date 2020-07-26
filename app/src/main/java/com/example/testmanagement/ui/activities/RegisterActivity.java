@@ -45,12 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         lastNameRegister_et=(EditText)findViewById(R.id.lastNameRegister_et);
         departmentRegister_et=(EditText)findViewById(R.id.departmentRegister_et);
         passwordRegister_et=(EditText)findViewById(R.id.passwordRegister_et);
-        registerNurseIdPreference=getSharedPreferences("nurse",MODE_PRIVATE);
+        registerNurseIdPreference=getSharedPreferences(String.valueOf(R.string.nurseSharedReference),MODE_PRIVATE);
         registerNurseIdPreEditor=registerNurseIdPreference.edit();
         intent=new Intent(RegisterActivity.this,NurseProfileActivity.class);
         nurseViewModel.get_insertNurseIdResult().observe(this, result -> {
             if(result>-1) {
-                registerNurseIdPreEditor.putString("authorizedNurseId",String.valueOf(result));
+                registerNurseIdPreEditor.putString(String.valueOf(R.string.autherizedNurseId),String.valueOf(result));
                 registerNurseIdPreEditor.commit();
                 startActivity(intent);
             }

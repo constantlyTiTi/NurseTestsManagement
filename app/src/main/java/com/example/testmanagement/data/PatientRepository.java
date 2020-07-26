@@ -14,13 +14,14 @@ public class PatientRepository {
     private MutableLiveData<Integer> _insertResult=new MutableLiveData<>();
     private final PatientDao patientDao;
 
-    public PatientRepository(Context context,int nurseId) {
+    public PatientRepository(Context context) {
        AppDatabase db=AppDatabase.getInstance(context);
        patientDao=db.patientDao();
-       this._patientList=patientDao.getAllPatients(nurseId);
     }
 
-    public LiveData<List<Patient>> getPatientList(){return this._patientList;}
+    public LiveData<List<Patient>> getPatientList(Long nurseId){
+        this._patientList=patientDao.getAllPatients(nurseId);
+        return this._patientList;}
     public void insert(Patient patient){asyncInsert(patient);}
     private void asyncInsert(final Patient patient){
         new Thread(new Runnable() {

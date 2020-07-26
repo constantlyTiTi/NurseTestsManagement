@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "patient")
 public class Patient {
     @PrimaryKey(autoGenerate = true)
-     private int patientId;
+     private Long patientId;
     @ColumnInfo(name="firstname")
     private String firstName;
     @ColumnInfo(name="lastName")
@@ -15,14 +15,14 @@ public class Patient {
     @ColumnInfo(name="department")
     private String department;
     @ColumnInfo(name="nurseId")
-    private int nurseId;
+    private Long nurseId;
     @ColumnInfo(name="room")
     private String room;
 
     public Patient() {
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
@@ -38,14 +38,14 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public void setNurseId(int nurseId) {
+    public void setNurseId(Long nurseId) {
         this.nurseId = nurseId;
     }
 
     public void setRoom(String room) {
         this.room = room;
     }
-    public int getPatientId(){
+    public Long getPatientId(){
         return this.patientId;
     }
     public String getFirstName(){
@@ -57,7 +57,7 @@ public class Patient {
     public String getDepartment(){
         return this.department;
     }
-    public int getNurseId(){
+    public Long getNurseId(){
         return this.nurseId;
     }
     public String getRoom(){

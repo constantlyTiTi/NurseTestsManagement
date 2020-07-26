@@ -1,17 +1,25 @@
 package com.example.testmanagement.ui.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.testmanagement.R;
+import com.example.testmanagement.service.models.Patient;
+import com.example.testmanagement.ui.adapters.PatientListViewAdapter;
 import com.example.testmanagement.ui.fragments.AddPatientFragment;
 import com.example.testmanagement.ui.fragments.PatientListOfNurseFragment;
+import com.example.testmanagement.ui.viewModels.PatientViewModel;
 
-public class PatientActivity extends AppCompatActivity {
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class PatientActivity extends FragmentActivity {
     private Button addNewPatient_bt;
     private PatientListOfNurseFragment patientListOfNurseFragment;
     private AddPatientFragment addPatientFragment;
@@ -24,6 +32,8 @@ public class PatientActivity extends AppCompatActivity {
         addNewPatient_bt=(Button)findViewById(R.id.addNewPatient_bt);
         patientListOfNurseFragment=(PatientListOfNurseFragment)getSupportFragmentManager().findFragmentById(R.id.patientListViewFragment);
         addPatientFragment=(AddPatientFragment)getSupportFragmentManager().findFragmentById(R.id.addNewPatientFragment);
+
+
 
         fragmentInitialDisplay();
 

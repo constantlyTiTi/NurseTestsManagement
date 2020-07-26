@@ -58,9 +58,9 @@ public class LoginActivity extends AppCompatActivity {
                     .observe(LoginActivity.this, optionalN -> {
                         optionalN.ifPresent(n->{
                             if (n.get_password().equals(enteredPassword)) {
-                                nurseIdSharedPreference = getSharedPreferences("nurse", MODE_PRIVATE);
+                                nurseIdSharedPreference = getSharedPreferences(String.valueOf(R.string.nurseSharedReference), MODE_PRIVATE);
                                 nurseIdSharedPreferenceEditor = nurseIdSharedPreference.edit();
-                                nurseIdSharedPreferenceEditor.putString("authorizedNurseId", nurseId.toString());
+                                nurseIdSharedPreferenceEditor.putString(String.valueOf(R.string.autherizedNurseId), nurseId.toString());
                                 nurseIdSharedPreferenceEditor.commit();
                                 startActivity(new Intent(LoginActivity.this,NurseProfileActivity.class));
                             } else {
