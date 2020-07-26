@@ -12,7 +12,9 @@ import java.util.List;
 @Dao
 public interface PatientDao {
     @Insert
-     void insert(Patient patient);
+     Long insert(Patient patient);
     @Query("select * from patient where nurseId= :nurseId")
     LiveData<List<Patient>> getAllPatients(Long nurseId);
+    @Query(("select*from patient where patientId=:patientId"))
+    LiveData<Patient> getPatientInfor(Long patientId);
 }

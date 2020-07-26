@@ -10,7 +10,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.testmanagement.R;
-import com.example.testmanagement.data.AsyncInsertResponse;
 import com.example.testmanagement.data.PatientRepository;
 import com.example.testmanagement.service.models.Patient;
 
@@ -29,5 +28,11 @@ public class PatientViewModel extends AndroidViewModel {
 
     public LiveData<List<Patient>> getAllPatientsByNurse(){
         return patientRepository.getPatientList(nurseId);
+    }
+    public void insertPatient(Patient patient){
+        patientRepository.insert(patient);
+    }
+    public LiveData<Patient> getPatientInfor(Long patientId){
+        return patientRepository.getPatientInfor(patientId);
     }
 }

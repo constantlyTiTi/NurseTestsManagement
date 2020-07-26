@@ -1,6 +1,7 @@
 package com.example.testmanagement.ui.activities;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -20,40 +21,42 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientActivity extends FragmentActivity {
+    private FragmentTransaction mFragmentTransaction;
+    private FragmentManager mFragmentManager;
     private Button addNewPatient_bt;
     private PatientListOfNurseFragment patientListOfNurseFragment;
     private AddPatientFragment addPatientFragment;
-    private FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
-
-        addNewPatient_bt=(Button)findViewById(R.id.addNewPatient_bt);
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        addNewPatient_bt=(Button)findViewById(R.id.goToAddNewPatient_bt);
         patientListOfNurseFragment=(PatientListOfNurseFragment)getSupportFragmentManager().findFragmentById(R.id.patientListViewFragment);
         addPatientFragment=(AddPatientFragment)getSupportFragmentManager().findFragmentById(R.id.addNewPatientFragment);
 
+//        fragmentInitialDisplay();
 
-
-        fragmentInitialDisplay();
-
-        addNewPatient_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addPatientButtonOnClick();
-            }
-        });
+        addNewPatient_bt.setOnClickListener(v -> addPatientButtonOnClick());
 
     }
 
     private void fragmentInitialDisplay(){
-        fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        if(patientListOfNurseFragment.isHidden()){fragmentTransaction.show(patientListOfNurseFragment);}
-        if(!addPatientFragment.isHidden()){fragmentTransaction.hide(addPatientFragment);}
+        mFragmentTransaction
+                .detach(addPatientFragment)
+//                .add(patientListOfNurseFragment,"patientFragment")
+                .remove(addPatientFragment)
+                .commit();
+//        getSupportFragmentManager().beginTransaction()..commit();
+/*        fragmentTransaction.commit();*/
     }
 
     private void addPatientButtonOnClick(){
-        fragmentTransaction.hide(patientListOfNurseFragment);
-        fragmentTransaction.show(addPatientFragment);
+        mFragmentTransaction
+                .add(R.id.addNewPatientFragment, addPatientFragment)
+                .remove(patientListOfNurseFragment)
+                .commit();
+//        getSupportFragmentManager().beginTransaction().add(addPatientFragment,"patientFragment").commit();
     }
 }
