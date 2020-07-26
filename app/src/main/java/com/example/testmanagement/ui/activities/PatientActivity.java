@@ -61,8 +61,8 @@ public class PatientActivity extends FragmentActivity {
             mFragmentTransaction.add(R.id.content, addPatientFragment);
         }
         if(addPatientFragment.isDetached()){
-            mFragmentTransaction.replace(patientListOfNurseFragment,addPatientFragment);
-            mFragmentTransaction.detach();
+/*            mFragmentTransaction.replace(patientListOfNurseFragment,addPatientFragment);
+            mFragmentTransaction.detach(addPatientFragment);*/
 
         }else{
             mFragmentTransaction.detach(addPatientFragment);
