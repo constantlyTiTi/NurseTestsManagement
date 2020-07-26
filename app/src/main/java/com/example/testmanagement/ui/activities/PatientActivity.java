@@ -31,10 +31,9 @@ public class PatientActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
         mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
         addNewPatient_bt=(Button)findViewById(R.id.goToAddNewPatient_bt);
         patientListOfNurseFragment=(PatientListOfNurseFragment)getSupportFragmentManager().findFragmentById(R.id.patientListViewFragment);
-        addPatientFragment=(AddPatientFragment)getSupportFragmentManager().findFragmentById(R.id.addNewPatientFragment);
+        addPatientFragment= new AddPatientFragment();
 
 //        fragmentInitialDisplay();
 
@@ -43,20 +42,32 @@ public class PatientActivity extends FragmentActivity {
     }
 
     private void fragmentInitialDisplay(){
-        mFragmentTransaction
-                .detach(addPatientFragment)
-//                .add(patientListOfNurseFragment,"patientFragment")
-                .remove(addPatientFragment)
-                .commit();
+        if(addPatientFragment.isAdded()){
+            mFragmentTransaction.add(R.id.content, addPatientFragment);
+        }
+        if(addPatientFragment.isDetached()){
+            mFragmentTransaction.attach(addPatientFragment);
+        }else{
+            mFragmentTransaction.detach(addPatientFragment);
+        }
+        mFragmentTransaction.commit();
 //        getSupportFragmentManager().beginTransaction()..commit();
 /*        fragmentTransaction.commit();*/
     }
 
     private void addPatientButtonOnClick(){
-        mFragmentTransaction
-                .add(R.id.addNewPatientFragment, addPatientFragment)
-                .remove(patientListOfNurseFragment)
-                .commit();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        if(!addPatientFragment.isAdded()){
+            mFragmentTransaction.add(R.id.content, addPatientFragment);
+        }
+        if(addPatientFragment.isDetached()){
+            mFragmentTransaction.replace(patientListOfNurseFragment,addPatientFragment);
+            mFragmentTransaction.detach();
+
+        }else{
+            mFragmentTransaction.detach(addPatientFragment);
+        }
+        mFragmentTransaction.commit();
 //        getSupportFragmentManager().beginTransaction().add(addPatientFragment,"patientFragment").commit();
     }
 }
