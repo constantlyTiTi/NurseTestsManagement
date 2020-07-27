@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.NurseProfileActivity"></activity>
+        <activity android:name=".ui.activities.TestEditActivity"></activity>
+        <activity android:name=".ui.activities.NurseProfileActivity" />
         <activity android:name=".ui.activities.RegisterActivity" />
         <activity android:name=".ui.activities.UpdateInforActivity" />
         <activity android:name=".ui.activities.ViewTestInforActivity" />
