@@ -32,7 +32,8 @@ public class TestRepository {
         return this.tests;}
     public void insert(Test test){asyncInsert(test);}
     public void update(Test test){asyncUpdate(test);}
-    public LiveData<Long> getInsertPatientId(){
+    public void delete(Test... tests){testPatientNurseDao.delete(tests);}
+    public LiveData<Long> getInsertTestId(){
         return insertTestId;
     }
     public LiveData<Integer> getUpdateResult(){return  updateTestResult;}
