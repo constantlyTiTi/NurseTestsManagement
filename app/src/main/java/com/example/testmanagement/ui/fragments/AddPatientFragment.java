@@ -1,6 +1,7 @@
 package com.example.testmanagement.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,6 +18,10 @@ import android.widget.EditText;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Patient;
+import com.example.testmanagement.ui.activities.NurseProfileActivity;
+import com.example.testmanagement.ui.activities.PatientActivity;
+import com.example.testmanagement.ui.activities.RegisterActivity;
+import com.example.testmanagement.ui.viewModels.NurseViewModel;
 import com.example.testmanagement.ui.viewModels.PatientViewModel;
 
 public class AddPatientFragment extends Fragment {
@@ -40,9 +45,7 @@ public class AddPatientFragment extends Fragment {
         patientNurseId_et=(EditText)view.findViewById(R.id.patientNurseId_addPatient_et);
         patientRoom_et=(EditText)view.findViewById(R.id.patientRoom_addPatient_et);
         patientDepartment_et=(EditText)view.findViewById(R.id.patientDepartment_addPatient_et);
-
         addPatientSubmit_bt.setOnClickListener(v->submitNewPatient());
-
         return view;
     }
     @Override
