@@ -1,13 +1,11 @@
 package com.example.testmanagement.ui.viewModels;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.testmanagement.data.AsyncInsertResponse;
 import com.example.testmanagement.data.NurseRepository;
 import com.example.testmanagement.service.models.Nurse;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.TestEditActivity">
+    tools:context=".ui.activities.UpdateTestInforActivity">
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="601dp"
@@ -24,8 +24,8 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_testId_label_tv"
-                android:layout_width="110dp"
+                android:id="@+id/updateTest_testId_label_tv"
+                android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:paddingTop="20dp"
@@ -34,20 +34,20 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/testView_testId_tv"
+                android:id="@+id/updateTest_testId_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
         </LinearLayout>
-        <!--<LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_patientId_label_tv"
+                android:id="@+id/updateTest_patientId_label_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -57,20 +57,20 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/testView_patientId_tv"
+                android:id="@+id/updateTest_patientId_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
-        </LinearLayout>-->
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_nurseId_tv"
+                android:id="@+id/updateTest_nurseId_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -80,7 +80,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/testView_nurseId_et"
+                android:id="@+id/updateTest_nurseId_et"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -93,7 +93,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_bpl_tv"
+                android:id="@+id/updateTest_bpl_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -103,7 +103,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/testView_bpl_et"
+                android:id="@+id/updateTest_bpl_et"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -116,7 +116,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_bph_tv"
+                android:id="@+id/updateTest_bph_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -126,7 +126,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/testView_bph_et"
+                android:id="@+id/updateTest_bph_et"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -139,7 +139,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/testView_temperature_tv"
+                android:id="@+id/updateTest_temperature_tv"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -149,7 +149,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/testView_temperature_et"
+                android:id="@+id/updateTest_temperature_et"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -158,7 +158,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/test_submit_bt"
+            android:id="@+id/updateTest_submit_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="submit"

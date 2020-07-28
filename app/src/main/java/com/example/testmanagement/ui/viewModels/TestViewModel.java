@@ -13,12 +13,38 @@ import java.util.List;
 
 public class TestViewModel extends AndroidViewModel {
     TestRepository testRepository;
-    private LiveData<List<Test>> tests;
-    private LiveData<Test> test;
+    private LiveData<List<Test>> getPatientTestsByPatient;
+    private LiveData<Test> getTestByTestId;
     private LiveData<Long> insertTestId;
     private LiveData<Integer> updateTestResult;
     public TestViewModel(@NonNull Application application) {
         super(application);
         testRepository=new TestRepository(application);
+    }
+
+    public LiveData<List<Test>> getTestsByPatient(Long patientId){
+        getPatientTestsByPatient=testRepository.getTestListByPatient(patientId);
+        return getPatientTestsByPatient;
+    }
+    public void getTestInforByTestId(Long testId){
+        getTestByTestId=testRepository.getTestInfor(testId);
+    }
+    public void update(Test test){
+        testRepository.update(test);
+        updateTestResult=testRepository.getUpdateResult();
+    }
+    public LiveData<Integer> getUpdateResult(){
+        return updateTestResult;
+    }
+    public void insert(Test test){
+        testRepository.insert(test);
+        insertTestId=testRepository.getInsertTestId();
+    }
+    public LiveData<Long> getInsertTestId(){
+        return insertTestId;
+    }
+
+    public void delete(Test... tests){
+        testRepository.delete(tests);
     }
 }

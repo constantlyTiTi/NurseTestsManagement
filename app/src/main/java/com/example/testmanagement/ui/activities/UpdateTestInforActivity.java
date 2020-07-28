@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.testmanagement.R;
 
-public class TestEditActivity extends AppCompatActivity {
+public class UpdateTestInforActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_edit);
+        setContentView(R.layout.activity_update_test_infor);
     }
 }

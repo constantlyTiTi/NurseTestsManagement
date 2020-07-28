@@ -107,7 +107,7 @@ public class UpdateInforActivity extends AppCompatActivity {
         }
     }
     private void goToTestPage(){
-        Intent intent=new Intent(UpdateInforActivity.this,TestActivity.class);
+        Intent intent=new Intent(UpdateInforActivity.this,ViewTestInforActivity.class);
         startActivity(intent);
     }
 }

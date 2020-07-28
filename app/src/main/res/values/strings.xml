@@ -24,4 +24,6 @@
     <string name="patientSharedPreference">patientSharedPreference</string>
     <string name="patientUpdateSuccess">Patient Update Success</string>
     <string name="patientUpdateFailed">Failed to Update the Patient</string>
+    <string name="selectedTestSharedPreference">selectedTestSharedPreference</string>
+    <string name="selectedTestId">selectedTestId</string>
 </resources>
