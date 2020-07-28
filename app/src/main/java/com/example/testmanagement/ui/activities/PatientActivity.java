@@ -21,24 +21,27 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PatientActivity extends FragmentActivity {
-    private FragmentTransaction mFragmentTransaction;
-    private FragmentManager mFragmentManager;
+
     private Button addNewPatient_bt;
     private PatientListOfNurseFragment patientListOfNurseFragment;
     private AddPatientFragment addPatientFragment;
+    private FragmentTransaction mFragmentTransaction;
+    private FragmentManager mFragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
+
         mFragmentManager = getSupportFragmentManager();
-        addNewPatient_bt=(Button)findViewById(R.id.goToAddNewPatient_bt);
-//        patientListOfNurseFragment=(PatientListOfNurseFragment)getSupportFragmentManager().findFragmentById(R.id.patientListViewFragment);
+
         addPatientFragment= new AddPatientFragment();
         patientListOfNurseFragment = new PatientListOfNurseFragment();
 
         fragmentInitialDisplay();
 
-        addNewPatient_bt.setOnClickListener(v -> addPatientButtonOnClick());
+        patientListOfNurseFragment.communicateWithAddPatientFragment(addPatientFragment);
+        addPatientFragment.communicateWithPatientListViewFrag(patientListOfNurseFragment);
+
 
     }
 
@@ -49,7 +52,7 @@ public class PatientActivity extends FragmentActivity {
         }
     }
 
-    private void addPatientButtonOnClick(){
+   /* private void addPatientButtonOnClick(){
         mFragmentTransaction = mFragmentManager.beginTransaction();
         if(!addPatientFragment.isAdded()){
             mFragmentTransaction.add(R.id.patientLayout, addPatientFragment);
@@ -64,5 +67,5 @@ public class PatientActivity extends FragmentActivity {
         }
         mFragmentTransaction.commit();
 //        getSupportFragmentManager().beginTransaction().add(addPatientFragment,"patientFragment").commit();
-    }
+    }*/
 }
