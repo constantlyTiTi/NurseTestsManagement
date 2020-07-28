@@ -1,7 +1,6 @@
 package com.example.testmanagement.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -9,11 +8,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Test;
-import com.example.testmanagement.ui.adapters.TestsListViewAdapter;
 import com.example.testmanagement.ui.viewModels.TestViewModel;
 
 public class TestActivity extends AppCompatActivity {

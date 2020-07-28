@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Test;
-import com.example.testmanagement.ui.adapters.TestsListViewAdapter;
+import com.example.testmanagement.ui.adapters.TestsRecyclerViewAdapter;
 import com.example.testmanagement.ui.viewModels.TestViewModel;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class TestRecyclerFragment extends Fragment {
 
     private static final String TAG = "RecyclerViewFragment";
 
-    protected TestsListViewAdapter testsListViewAdapter;
+    protected TestsRecyclerViewAdapter testsListViewAdapter;
     protected List<Test> getTestsByPatientId;
     protected TestViewModel testViewModel;
     protected SharedPreferences getSelectedPatientIdPre;
@@ -51,7 +51,6 @@ public class TestRecyclerFragment extends Fragment {
         View rootView=inflater.inflate(R.layout.fragment_test_recycler, container, false);
         rootView.setTag(TAG);
         testRecyclerView=(RecyclerView)rootView.findViewById(R.id.testRecyclerView);
-        mLayoutManager= new LinearLayoutManager(getActivity());
 
         setRecyclerViewLayoutManager();
 
@@ -61,7 +60,7 @@ public class TestRecyclerFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
-
+        mLayoutManager= new LinearLayoutManager(this.getActivity());
         testViewModel= ViewModelProviders.of(this).get(TestViewModel.class);
         //retrieve selected patient id
         getSelectedPatientIdPre=this.getActivity().getSharedPreferences(
@@ -75,7 +74,8 @@ public class TestRecyclerFragment extends Fragment {
             getTestsByPatientId=result;
         });
 
-        testsListViewAdapter=new TestsListViewAdapter(this.getActivity(),getTestsByPatientId);
+        testsListViewAdapter=new TestsRecyclerViewAdapter(this.getActivity(),getTestsByPatientId);
+        testRecyclerView.setAdapter(testsListViewAdapter);
     }
 
     public void setRecyclerViewLayoutManager() {
