@@ -22,8 +22,9 @@ public class TestViewModel extends AndroidViewModel {
         testRepository=new TestRepository(application);
     }
 
-    public void getTestsByPatient(Long patientId){
+    public LiveData<List<Test>> getTestsByPatient(Long patientId){
         getPatientTestsByPatient=testRepository.getTestListByPatient(patientId);
+        return getPatientTestsByPatient;
     }
     public void getTestInforByTestId(Long testId){
         getTestByTestId=testRepository.getTestInfor(testId);

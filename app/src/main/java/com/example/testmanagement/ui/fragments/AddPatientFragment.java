@@ -64,6 +64,6 @@ public class AddPatientFragment extends Fragment {
         patient.setDepartment(patientDepartment_et.getText().toString());
         patient.setRoom(patientRoom_et.getText().toString());
         patientViewModel.insertPatient(patient);
-
     }
+
 }

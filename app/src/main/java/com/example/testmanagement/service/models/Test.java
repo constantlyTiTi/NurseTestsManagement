@@ -2,17 +2,21 @@ package com.example.testmanagement.service.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Test")
+@Entity(tableName = "Test",
+        foreignKeys = {@ForeignKey(entity=Patient.class,
+                        parentColumns ="patientId",
+                        childColumns = "patientId")})
 public class Test {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="testId")
-    private int _testId;
+    private Long _testId;
     @ColumnInfo(name="patientId")
-    private int _patientId;
+    private Long _patientId;
     @ColumnInfo(name="nurseId")
-    private int _nurseId;
+    private Long _nurseId;
     @ColumnInfo(name="BPL")
     private String _BPL;
     @ColumnInfo(name="BPH")
@@ -32,15 +36,15 @@ public class Test {
         this._temperature=temp;
     }*/
 
-    public void set_testId(int _testId) {
+    public void set_testId(Long _testId) {
         this._testId = _testId;
     }
 
-    public void set_patientId(int _patientId) {
+    public void set_patientId(Long _patientId) {
         this._patientId = _patientId;
     }
 
-    public void set_nurseId(int _nurseId) {
+    public void set_nurseId(Long _nurseId) {
         this._nurseId = _nurseId;
     }
 
@@ -56,14 +60,14 @@ public class Test {
         this._temperature = _temperature;
     }
 
-    public int get_testId(){
+    public Long get_testId(){
         return this._testId;
     }
-    public int get_patientId(){
+    public Long get_patientId(){
         return this._patientId;
     }
 
-    public int get_nurseId() {
+    public Long get_nurseId() {
         return _nurseId;
     }
 

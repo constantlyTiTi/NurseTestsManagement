@@ -19,15 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ListView
+<!--        <ListView
             android:id="@+id/testListView_listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minHeight="20dp" />-->
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="496dp" />
         <Button
-            android:id="@+id/deleteSelectedTests_bt"
+            android:id="@+id/testListView_addNewTest_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="add new test" />
+        <Button
+            android:id="@+id/testListView_delete_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="delete" />
+
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
