@@ -11,17 +11,26 @@
         android:orientation="vertical">
 
 
+<!--
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+-->
 
-            <ListView
-                android:id="@+id/patientListOfNurse_ListView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
+        <ListView
+            android:id="@+id/patientListOfNurse_ListView"
+            android:layout_width="match_parent"
+            android:layout_height="481dp"
+            android:layout_marginTop="5dp"
+            android:scrollbarStyle="insideInset" />
+<!--        </LinearLayout>-->
+        <Button
+            android:id="@+id/goToAddNewPatient_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="add new patient"
+            android:textSize="24sp" />
 
     </LinearLayout>
 

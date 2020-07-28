@@ -169,7 +169,7 @@
             android:id="@+id/updateToTestPage_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go to patient tests"
+            android:text="patient tests"
             android:textSize="24sp" />
     </LinearLayout>
 
