@@ -57,7 +57,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/updateTest_patientId_tv"
+                android:id="@+id/updateTest_patientId_et"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
