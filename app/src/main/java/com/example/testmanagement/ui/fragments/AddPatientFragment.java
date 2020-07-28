@@ -1,12 +1,13 @@
 package com.example.testmanagement.ui.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -18,22 +19,21 @@ import android.widget.EditText;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Patient;
-import com.example.testmanagement.ui.activities.NurseProfileActivity;
-import com.example.testmanagement.ui.activities.PatientActivity;
-import com.example.testmanagement.ui.activities.RegisterActivity;
-import com.example.testmanagement.ui.viewModels.NurseViewModel;
 import com.example.testmanagement.ui.viewModels.PatientViewModel;
 
 public class AddPatientFragment extends Fragment {
-    Button addPatientSubmit_bt;
-    EditText patientId_et;
-    EditText patientFirstName_et;
-    EditText patientLastName_et;
-    EditText patientNurseId_et;
-    EditText patientRoom_et;
-    EditText patientDepartment_et;
-    SharedPreferences getNursePre;
-    PatientViewModel patientViewModel;
+    private Button addPatientSubmit_bt;
+    private EditText patientId_et;
+    private EditText patientFirstName_et;
+    private EditText patientLastName_et;
+    private EditText patientNurseId_et;
+    private EditText patientRoom_et;
+    private EditText patientDepartment_et;
+    private SharedPreferences getNursePre;
+    private PatientViewModel patientViewModel;
+    private PatientListOfNurseFragment patientListOfNurseFragment;
+    private FragmentTransaction mFragmentTransaction;
+    private FragmentManager mFragmentManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,7 +45,9 @@ public class AddPatientFragment extends Fragment {
         patientNurseId_et=(EditText)view.findViewById(R.id.patientNurseId_addPatient_et);
         patientRoom_et=(EditText)view.findViewById(R.id.patientRoom_addPatient_et);
         patientDepartment_et=(EditText)view.findViewById(R.id.patientDepartment_addPatient_et);
+
         addPatientSubmit_bt.setOnClickListener(v->submitNewPatient());
+
         return view;
     }
     @Override
@@ -56,6 +58,8 @@ public class AddPatientFragment extends Fragment {
         String nurseIdString=getNursePre.getString(String.valueOf(R.string.autherizedNurseId),"");
         patientNurseId_et.setText(nurseIdString);
         patientViewModel= ViewModelProviders.of(this.getActivity()).get(PatientViewModel.class);
+
+        mFragmentManager = this.getActivity().getSupportFragmentManager();
     }
 
     private void submitNewPatient(){
@@ -67,6 +71,17 @@ public class AddPatientFragment extends Fragment {
         patient.setDepartment(patientDepartment_et.getText().toString());
         patient.setRoom(patientRoom_et.getText().toString());
         patientViewModel.insertPatient(patient);
+        PatientListViewButtonOnClick();
+    }
+
+    public void communicateWithPatientListViewFrag(PatientListOfNurseFragment patientListOfNurseFragment){
+        this.patientListOfNurseFragment=patientListOfNurseFragment;
+    }
+
+    private void PatientListViewButtonOnClick(){
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentTransaction.replace(R.id.patientLayout,patientListOfNurseFragment);
+        mFragmentTransaction.commit();
     }
 
 }
