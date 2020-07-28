@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/patientLayout"
+    android:id="@+id/patientActLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.PatientActivity">
@@ -18,19 +18,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--        <fragment-->
-        <!--            android:id="@+id/patientListViewFragment"-->
-        <!--            class="com.example.testmanagement.ui.fragments.PatientListOfNurseFragment"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="5dp" />-->
+<!--        <fragment-->
+<!--            android:id="@+id/patientListViewFragment"-->
+<!--            class="com.example.testmanagement.ui.fragments.PatientListOfNurseFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp" />-->
 
         <!--<Button
             android:id="@+id/goToAddNewPatient_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="add new patient"
-            android:textSize="24sp" />-->
+            android:textSize="24sp" />
 
         <!--        <fragment-->
         <!--            android:id="@+id/addNewPatientFragment"-->

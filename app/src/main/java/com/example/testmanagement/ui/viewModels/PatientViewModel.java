@@ -38,7 +38,7 @@ public class PatientViewModel extends AndroidViewModel {
     public LiveData<Patient> getPatientInfor(Long patientId){
         return patientRepository.getPatientInfor(patientId);
     }
-
+    public LiveData<Long> getInsertPatientId() { return patientRepository.getInsertPatientId();}
     public LiveData<Integer> getUpdateResult(){
         return patientRepository.getUpdateResult();
     }

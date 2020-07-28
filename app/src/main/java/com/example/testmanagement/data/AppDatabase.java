@@ -10,7 +10,7 @@ import com.example.testmanagement.service.models.Nurse;
 import com.example.testmanagement.service.models.Patient;
 import com.example.testmanagement.service.models.Test;
 
-@Database(version=1,entities={Patient.class, Test.class, Nurse.class})
+@Database(version=1, exportSchema = false,entities={Patient.class, Test.class, Nurse.class})
 abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
     private static final String DATABASE_NAME = "NursePatientTestDB";
