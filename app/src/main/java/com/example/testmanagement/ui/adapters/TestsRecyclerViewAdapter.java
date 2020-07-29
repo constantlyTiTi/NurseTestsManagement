@@ -27,7 +27,6 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
     List<Test> tests;
     SharedPreferences editViewTestInforSharedPreference;
     SharedPreferences.Editor editViewTestInforPreEditor;
-    String testItemsTVString;
     private List<Test> selectedTests;
     public TestsRecyclerViewAdapter(@NonNull Activity context, @NonNull List<Test> objects) {
         this.tests=objects;
@@ -40,7 +39,6 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
         editViewTestInforPreEditor=editViewTestInforSharedPreference.edit();
     }
 
-    @NonNull
     @Override
     public TestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Create a new view.
@@ -52,18 +50,18 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
 
     @Override
     public void onBindViewHolder(@NonNull TestViewHolder viewHolder, int position) {
-
+        String testItemsTVString="";
 /*        if(position!=0){*/
             viewHolder.getTestId_tv().setText(String.valueOf(tests.get(position).get_testId()));
             viewHolder.getNuseId_tv().setText(String.valueOf(tests.get(position).get_nurseId()));
-            if(tests.get(position).get_BPL()!=null){
-                testItemsTVString+="BPL";
+            if(tests.get(position).get_BPL()!=""){
+                testItemsTVString+="BPL ";
             }
-            if(tests.get(position).get_BPH()!=null){
-                testItemsTVString+="<br/>BPH";
+            if(tests.get(position).get_BPH()!=""){
+                testItemsTVString+="BPH ";
             }
             if(tests.get(position).get_temperature()!=0){
-                testItemsTVString+="<br/>Temperature";
+                testItemsTVString+="Temperature";
             }
             viewHolder.getTestItems_tv().setText(testItemsTVString);
 
@@ -86,7 +84,7 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
                     editViewTestInforPreEditor.putString(String.valueOf(
                             R.string.selectedTestId)
                             ,String.valueOf(tests.get(position).get_testId()));
-
+                    editViewTestInforPreEditor.commit();
                     Intent intent=new Intent(context, UpdateTestInforActivity.class);
                     context.startActivity(intent);
                 });
@@ -128,14 +126,6 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
             button=new Button(context);
             deleteCheckbox_Layout.addView(checkBox);
             viewEditButton_Layout.addView(button);
-        }
-
-        public LinearLayout getDeleteCheckbox_Layout() {
-            return deleteCheckbox_Layout;
-        }
-
-        public LinearLayout getViewEditButton_Layout() {
-            return viewEditButton_Layout;
         }
 
         public TextView getTestId_tv() {

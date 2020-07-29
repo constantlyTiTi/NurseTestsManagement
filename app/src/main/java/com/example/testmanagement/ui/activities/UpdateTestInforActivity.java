@@ -66,7 +66,7 @@ public class UpdateTestInforActivity extends AppCompatActivity {
         test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));
         test.set_BPL(bplTest_et.getText().toString());
         test.set_BPH(bphTest_et.getText().toString());
-
+        testViewModel.update(test);
         Intent intent=new Intent(UpdateTestInforActivity.this, ViewTestInforActivity.class);
         startActivity(intent);
     }
