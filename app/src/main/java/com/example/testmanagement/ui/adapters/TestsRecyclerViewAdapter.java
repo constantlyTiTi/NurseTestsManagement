@@ -101,10 +101,10 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
 
     @Override
     public int getItemCount() {
-        return tests==null?0:tests.size();
+        return tests.size();
     }
 
-    public class TestViewHolder extends RecyclerView.ViewHolder {
+    public static class TestViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout deleteCheckbox_Layout;
         private LinearLayout viewEditButton_Layout;
         private TextView testId_tv;

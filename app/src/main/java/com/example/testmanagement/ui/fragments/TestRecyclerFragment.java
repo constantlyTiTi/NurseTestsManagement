@@ -72,10 +72,12 @@ public class TestRecyclerFragment extends Fragment {
         //retrieve tests by patient id;
         testViewModel.getTestsByPatient(selectedPatientId).observe(this,result->{
             getTestsByPatientId=result;
+            testsListViewAdapter=new TestsRecyclerViewAdapter(this.getActivity(),getTestsByPatientId);
+            testRecyclerView.setAdapter(testsListViewAdapter);
         });
 
-        testsListViewAdapter=new TestsRecyclerViewAdapter(this.getActivity(),getTestsByPatientId);
-        testRecyclerView.setAdapter(testsListViewAdapter);
+/*        testsListViewAdapter=new TestsRecyclerViewAdapter(this.getActivity(),getTestsByPatientId);
+        testRecyclerView.setAdapter(testsListViewAdapter);*/
     }
 
     public void setRecyclerViewLayoutManager() {
