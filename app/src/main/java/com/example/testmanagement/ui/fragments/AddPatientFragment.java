@@ -23,6 +23,7 @@ import com.example.testmanagement.ui.viewModels.PatientViewModel;
 
 public class AddPatientFragment extends Fragment {
     private Button addPatientSubmit_bt;
+    private Button addPatientSubmitCancel_bt;
     private EditText patientId_et;
     private EditText patientFirstName_et;
     private EditText patientLastName_et;
@@ -40,6 +41,7 @@ public class AddPatientFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_add_patient, container, false);
         addPatientSubmit_bt=(Button)view.findViewById(R.id.addPatient_bt);
+        addPatientSubmitCancel_bt=(Button)view.findViewById(R.id.addPatientCancel_bt);
         patientFirstName_et=(EditText)view.findViewById(R.id.patientFirstName_addPatient_et);
         patientLastName_et=(EditText)view.findViewById(R.id.patientLastName_addPatient_et);
         patientNurseId_et=(EditText)view.findViewById(R.id.patientNurseId_addPatient_et);
@@ -47,6 +49,7 @@ public class AddPatientFragment extends Fragment {
         patientDepartment_et=(EditText)view.findViewById(R.id.patientDepartment_addPatient_et);
 
         addPatientSubmit_bt.setOnClickListener(v->submitNewPatient());
+        addPatientSubmitCancel_bt.setOnClickListener(v->cancelNewPatientSubmission());
 
         return view;
     }
@@ -71,6 +74,9 @@ public class AddPatientFragment extends Fragment {
         patient.setDepartment(patientDepartment_et.getText().toString());
         patient.setRoom(patientRoom_et.getText().toString());
         patientViewModel.insertPatient(patient);
+        PatientListViewButtonOnClick();
+    }
+    private void cancelNewPatientSubmission(){
         PatientListViewButtonOnClick();
     }
 

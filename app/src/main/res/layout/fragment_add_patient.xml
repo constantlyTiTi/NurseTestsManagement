@@ -142,6 +142,13 @@
             android:text="submit"
             android:textSize="24sp" />
 
+        <Button
+            android:id="@+id/addPatientCancel_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textSize="24sp" />
+
     </LinearLayout>
 
 </LinearLayout>
