@@ -19,6 +19,7 @@ public class TestRepository {
     private LiveData<Test> test;
     private MutableLiveData<Long> insertTestId=new MutableLiveData<>();
     private MutableLiveData<Integer> updateTestResult=new MutableLiveData<>();
+    private MutableLiveData<Integer> deleteTestResult=new MutableLiveData<>();
     private TestPatientNurseDao testPatientNurseDao;
     AppDatabase appDatabase;
 
@@ -32,7 +33,7 @@ public class TestRepository {
         return this.tests;}
     public void insert(Test test){asyncInsert(test);}
     public void update(Test test){asyncUpdate(test);}
-    public void delete(Test... tests){testPatientNurseDao.delete(tests);}
+    public void delete(Test... tests){asyncDelete(tests);}
     public LiveData<Long> getInsertTestId(){
         return insertTestId;
     }
@@ -67,4 +68,18 @@ public class TestRepository {
         }).start();
     }
 
+    private void asyncDelete(final Test... tests){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    testPatientNurseDao.delete(tests);
+                    deleteTestResult.postValue(1);
+                }
+                catch (Exception e){
+                    deleteTestResult.postValue(0);
+                }
+            }
+        }).start();
+    }
 }

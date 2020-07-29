@@ -30,18 +30,9 @@ public class ViewTestInforActivity extends AppCompatActivity {
         transaction.replace(R.id.testRecyclerFragLayout,fragment);
         transaction.commit();
 
-/*        viewTestListView=findViewById(R.id.testRecyclerFragLayout);
-        viewTestListView.setAdapter(testsListViewAdapter);*/
-
         //button function
-        delete_bt=(Button)findViewById(R.id.testListView_delete_bt);
         addNewTest_bt=(Button)findViewById(R.id.testListView_addNewTest_bt);
         addNewTest_bt.setOnClickListener(v->addNewTest());
-    }
-
-    //button function method
-    private void deleteSelectedTests(){
-/*        testViewModel.delete((Test) testsListViewAdapter.getSelectedTests());*/
     }
 
     private void addNewTest(){

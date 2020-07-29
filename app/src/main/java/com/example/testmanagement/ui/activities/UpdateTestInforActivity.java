@@ -63,7 +63,11 @@ public class UpdateTestInforActivity extends AppCompatActivity {
     private void updateTestInfor(){
         test.set_patientId(Long.parseLong(patientId_et.getText().toString()));
         test.set_nurseId(Long.parseLong(nurseId_et.getText().toString()));
-        test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));
+        if(temperatureTest_et.getText().toString().compareTo("")!=0){
+        test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));}
+        else {
+            test.set_temperature(0);
+        }
         test.set_BPL(bplTest_et.getText().toString());
         test.set_BPH(bphTest_et.getText().toString());
         testViewModel.update(test);

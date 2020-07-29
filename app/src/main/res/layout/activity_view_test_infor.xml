@@ -37,11 +37,6 @@
             android:layout_height="50dp"
             android:text="add new test" />
 
-        <Button
-            android:id="@+id/testListView_delete_bt"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="delete" />
 
 
 

@@ -19,7 +19,9 @@
                 android:layout_width="69dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp">
 
             </LinearLayout>
 
@@ -55,7 +57,8 @@
                 android:layout_width="69dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="10dp">
 
             </LinearLayout>
         </LinearLayout>
