@@ -18,6 +18,7 @@ public class TestActivity extends AppCompatActivity {
     EditText bplTest_et;
     EditText bphTest_et;
     EditText temperatureTest_et;
+    EditText cbcTest_et;
     TestViewModel testViewModel;
     EditText nurseId_et;
     SharedPreferences getPatientIdPre;
@@ -33,6 +34,7 @@ public class TestActivity extends AppCompatActivity {
         temperatureTest_et=(EditText)findViewById(R.id.test_temperature_et);
         addNewTest_bt=(Button)findViewById(R.id.test_submit_bt);
         nurseId_et=(EditText)findViewById(R.id.test_nurseId_et);
+        cbcTest_et=(EditText)findViewById(R.id.test_cbc_et);
         testViewModel= ViewModelProviders.of(this).get(TestViewModel.class);
         //retrieve selected patientID
         getPatientIdPre=getSharedPreferences(String.valueOf(R.string.patientSharedPreference),MODE_PRIVATE);
@@ -47,8 +49,12 @@ public class TestActivity extends AppCompatActivity {
         test.set_nurseId(Long.parseLong(nurseId_et.getText().toString()));
         test.set_BPH(bphTest_et.getText().toString());
         test.set_BPL(bplTest_et.getText().toString());
-        test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));
         test.set_patientId(Long.parseLong(selectedPatientIdStirng));
+        if(temperatureTest_et.getText().toString().equals("")) {test.set_temperature(0); }
+        else {test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));}
+        if(cbcTest_et.getText().toString().equals("")) {test.set_cbc(0); }
+        else {test.set_cbc(Double.parseDouble(cbcTest_et.getText().toString()));}
+
         testViewModel.insert(test);
         //Go back to test list page
         Intent intent =new Intent(TestActivity.this,ViewTestInforActivity.class);

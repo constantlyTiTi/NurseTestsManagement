@@ -23,6 +23,7 @@ public class UpdateTestInforActivity extends AppCompatActivity {
     EditText temperatureTest_et;
     EditText nurseId_et;
     EditText patientId_et;
+    EditText cbcTest_et;
     TextView testId_tv;
     TestViewModel testViewModel;
     SharedPreferences getTestIdPre;
@@ -40,6 +41,7 @@ public class UpdateTestInforActivity extends AppCompatActivity {
         nurseId_et=(EditText)findViewById(R.id.updateTest_nurseId_et);
         patientId_et=(EditText)findViewById(R.id.updateTest_patientId_et);
         testId_tv=(TextView) findViewById(R.id.updateTest_testId_tv);
+        cbcTest_et=(EditText)findViewById(R.id.updateTest_cbc_et);
 
         testViewModel= ViewModelProviders.of(this).get(TestViewModel.class);
         getTestIdPre=getSharedPreferences(String.valueOf(R.string.selectedTestSharedPreference),MODE_PRIVATE);
@@ -55,6 +57,7 @@ public class UpdateTestInforActivity extends AppCompatActivity {
                         bplTest_et.setText(test.get_BPL());
                         bphTest_et.setText(test.get_BPH());
                         temperatureTest_et.setText(String.valueOf(test.get_temperature()));
+                        cbcTest_et.setText(String.valueOf(test.get_cbc()));
                     });
         //update
         updateTest_bt.setOnClickListener(v->updateTestInfor());
@@ -67,6 +70,11 @@ public class UpdateTestInforActivity extends AppCompatActivity {
         test.set_temperature(Double.parseDouble(temperatureTest_et.getText().toString()));}
         else {
             test.set_temperature(0);
+        }
+        if(cbcTest_et.getText().toString().compareTo("")!=0){
+            test.set_cbc(Double.parseDouble(cbcTest_et.getText().toString()));}
+        else {
+            test.set_cbc(0);
         }
         test.set_BPL(bplTest_et.getText().toString());
         test.set_BPH(bphTest_et.getText().toString());

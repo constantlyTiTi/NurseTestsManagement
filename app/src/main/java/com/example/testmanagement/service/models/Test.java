@@ -23,6 +23,8 @@ public class Test {
     private String _BPH;
     @ColumnInfo(name="temperature")
     private double _temperature;
+    @ColumnInfo(name="cbc")
+    private double _cbc;
 
     public Test() {
     }
@@ -60,6 +62,8 @@ public class Test {
         this._temperature = _temperature;
     }
 
+    public void set_cbc(double _cbc){this._cbc=_cbc;}
+
     public Long get_testId(){
         return this._testId;
     }
@@ -82,4 +86,7 @@ public class Test {
     public double get_temperature() {
         return _temperature;
     }
+
+    public double get_cbc(){return this._cbc;}
+
 }

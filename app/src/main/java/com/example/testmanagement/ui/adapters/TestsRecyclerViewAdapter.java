@@ -62,8 +62,12 @@ public class TestsRecyclerViewAdapter extends RecyclerView.Adapter<TestsRecycler
                 testItemsTVString+="BPH ";
             }
             if(tests.get(position).get_temperature()!=0){
-                testItemsTVString+="Temperature";
+                testItemsTVString+="Temperature ";
                 Log.d("temperature", String.valueOf(tests.get(position).get_temperature()));
+            }
+            if(tests.get(position).get_cbc()!=0){
+                testItemsTVString+="CBC";
+                Log.d("temperature", String.valueOf(tests.get(position).get_cbc()));
             }
             viewHolder.getTestItems_tv().setText(testItemsTVString);
 
