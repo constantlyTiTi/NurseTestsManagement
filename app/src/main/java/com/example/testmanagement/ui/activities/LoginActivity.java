@@ -52,22 +52,24 @@ public class LoginActivity extends AppCompatActivity {
         login_bt.setOnClickListener(v -> {
             Long nurseId;
             String enteredPassword;
-            nurseId=Long.parseLong(nurseId_et.getText().toString());
-            enteredPassword=password_et.getText().toString();
+            nurseId = Long.parseLong(nurseId_et.getText().toString());
+            enteredPassword = password_et.getText().toString();
+
             nurseViewModel.getLoginNurseInfor(nurseId)
-                    .observe(LoginActivity.this, optionalN -> {
-                        optionalN.ifPresent(n->{
-                            if (n.get_password().equals(enteredPassword)) {
-                                nurseIdSharedPreference = getSharedPreferences(String.valueOf(R.string.nurseSharedReference), MODE_PRIVATE);
-                                nurseIdSharedPreferenceEditor = nurseIdSharedPreference.edit();
-                                nurseIdSharedPreferenceEditor.putString(String.valueOf(R.string.autherizedNurseId), nurseId.toString());
-                                nurseIdSharedPreferenceEditor.commit();
-                                startActivity(new Intent(LoginActivity.this,NurseProfileActivity.class));
-                            } else {
-                                Toast toast = Toast.makeText(getApplicationContext(), R.string.wrong_password, Toast.LENGTH_LONG);
-                            }
+                        .observe(LoginActivity.this, optionalN -> {
+                            optionalN.ifPresent(n -> {
+                                    if (n.get_password().equals(enteredPassword)) {
+                                        nurseIdSharedPreference = getSharedPreferences(String.valueOf(R.string.nurseSharedReference), MODE_PRIVATE);
+                                        nurseIdSharedPreferenceEditor = nurseIdSharedPreference.edit();
+                                        nurseIdSharedPreferenceEditor.putString(String.valueOf(R.string.autherizedNurseId), nurseId.toString());
+                                        nurseIdSharedPreferenceEditor.commit();
+                                        startActivity(new Intent(LoginActivity.this, NurseProfileActivity.class));
+                                    }
+                                    else { password_et.setError("Password is Wrong");}
+                            });
+ /*                            if(optionalN.equals(null)){nurseId_et.setError("Nurse dose not exist in the database");}*/
+
                         });
-                    });
         });
 
     }

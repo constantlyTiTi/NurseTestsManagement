@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.ui.activities.RegisterActivity;
 
 public class RegisterFragment extends Fragment {
-    private Button register_bt;
+    private ImageButton register_bt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,7 +27,7 @@ public class RegisterFragment extends Fragment {
     }
 
     public void fragmentShow(){
-        register_bt=(Button)getView().findViewById(R.id.register_fragment_bt);
+        register_bt=(ImageButton)getView().findViewById(R.id.register_fragment_bt);
         register_bt.setOnClickListener(v -> {
             Intent intent=new Intent(getActivity(), RegisterActivity.class);
             startActivity(intent);

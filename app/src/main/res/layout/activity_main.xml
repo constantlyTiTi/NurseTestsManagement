@@ -24,18 +24,27 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="257dp"
-            app:srcCompat="@drawable/nurse_login" />
+            app:srcCompat="@drawable/nurse" />
 
-        <fragment
-            android:id="@+id/login_fragment"
-            android:name="com.example.testmanagement.ui.fragments.LoginFragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="92dp" />
-        <fragment
-            android:id="@+id/register_fragment"
-            android:name="com.example.testmanagement.ui.fragments.RegisterFragment"
-            android:layout_width="match_parent"
-            android:layout_height="92dp" />
+            android:layout_height="92dp"
+            android:orientation="horizontal">
 
+            <fragment
+                android:id="@+id/login_fragment"
+                android:name="com.example.testmanagement.ui.fragments.LoginFragment"
+                android:layout_width="205dp"
+                android:layout_height="92dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="1dp" />
+
+            <fragment
+                android:id="@+id/register_fragment"
+                android:name="com.example.testmanagement.ui.fragments.RegisterFragment"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_marginRight="5dp" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

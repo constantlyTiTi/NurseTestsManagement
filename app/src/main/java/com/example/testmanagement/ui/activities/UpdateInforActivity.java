@@ -90,13 +90,13 @@ public class UpdateInforActivity extends AppCompatActivity {
         patientViewModel.getUpdateResult().observe(UpdateInforActivity.this,result->{
             if(result==1){
                 Toast.makeText(UpdateInforActivity.this,
-                        String.valueOf(R.string.patientUpdateSuccess),
+                        "patient Update Success",
                         Toast.LENGTH_LONG)
                         .show();
             }
             else {
                 Toast.makeText(UpdateInforActivity.this,
-                        String.valueOf(R.string.patientUpdateFailed),
+                        "patient Update Failed",
                         Toast.LENGTH_LONG)
                         .show();
             }

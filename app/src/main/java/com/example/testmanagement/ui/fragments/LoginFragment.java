@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.testmanagement.service.models.Nurse;
@@ -25,7 +26,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class LoginFragment extends Fragment {
 
-    private Button login_bt;
+    private ImageButton login_bt;
     private Intent intent;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +37,7 @@ public class LoginFragment extends Fragment {
     }
 
     public void fragmentShow(){
-        login_bt=(Button)getView().findViewById(R.id.login_fragment_bt);
+        login_bt=(ImageButton)getView().findViewById(R.id.login_fragment_bt);
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

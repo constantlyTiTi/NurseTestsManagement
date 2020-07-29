@@ -66,7 +66,11 @@ public class RegisterActivity extends AppCompatActivity {
                 nurse.set_department(departmentRegister_et.getText().toString());
                 nurse.set_password(passwordRegister_et.getText().toString());
 //                nurse.set_nurseId(nurseViewModel.insertNurseAndReturnNurseId(nurse));
-                nurseViewModel.insertNurse(nurse);
+                if(passwordRegister_et.getText().toString().equals("")) {
+                    passwordRegister_et.setError("Password cannot be empty");
+                }
+                else {
+                nurseViewModel.insertNurse(nurse);}
 //                nurseViewModel.insertNurseAndReturnNurseId(nurse);
 //                nurseViewModel.processInsert();
 

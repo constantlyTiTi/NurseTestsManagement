@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.testmanagement.R;
 import com.example.testmanagement.service.models.Test;
@@ -33,7 +34,7 @@ public class TestRecyclerFragment extends Fragment {
     protected Long selectedPatientId;
     protected RecyclerView testRecyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
-    Button selectedDelete_bt;
+    ImageButton selectedDelete_bt;
 
 
     public TestRecyclerFragment() {
@@ -55,7 +56,7 @@ public class TestRecyclerFragment extends Fragment {
         testRecyclerView=(RecyclerView)rootView.findViewById(R.id.testRecyclerView);
 
         setRecyclerViewLayoutManager();
-        selectedDelete_bt=(Button)rootView.findViewById(R.id.testRecyclerView_delete_bt);
+        selectedDelete_bt=(ImageButton)rootView.findViewById(R.id.testRecyclerView_delete_bt);
         return rootView;
     }
 

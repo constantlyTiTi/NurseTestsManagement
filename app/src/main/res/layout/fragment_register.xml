@@ -6,23 +6,35 @@
     tools:context=".ui.fragments.RegisterFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/register_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/register_fragment_bt"
-            android:layout_width="match_parent"
+            android:layout_width="214dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:background="#FFFFFF"
+            android:scaleType="fitStart"
+            android:src="@drawable/register" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingTop="15dp"
             android:text="Register"
-            android:textSize="24sp" />
-    </LinearLayout>
+            android:textAlignment="viewEnd"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
 
 
 </FrameLayout>
